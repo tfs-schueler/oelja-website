@@ -10,6 +10,188 @@
   --sans: "DM Sans", sans-serif;
 }
 
+body:has(#game-root) {
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f2efe5;
+  color: #27392e;
+}
+
+body:has(#game-root)::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(ellipse at 76% 17%, rgb(214 194 153 / 18%), transparent 32%), radial-gradient(ellipse at 8% 84%, rgb(199 210 70 / 12%), transparent 34%);
+  content: "";
+  pointer-events: none;
+}
+
+.legacy-storefront { display: none; }
+
+.game-header {
+  position: relative;
+  display: grid;
+  min-height: 78px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0 6.2%;
+  border-bottom: 1px solid rgb(39 57 46 / 10%);
+}
+
+.game-wordmark { display: inline-flex; width: fit-content; align-items: center; gap: 10px; font-family: var(--serif); font-size: 21px; font-weight: 600; }
+.brand-mark { display: grid; width: 30px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: #344d3c; color: #f2efe5; font: 600 17px var(--serif); }
+.header-note { margin: 0; color: #7c8073; text-align: center; font-size: 11px; letter-spacing: .04em; }
+.sound-button { display: inline-flex; min-height: 40px; align-items: center; justify-self: end; gap: 8px; padding: 0; border: 0; background: none; color: #48594b; cursor: pointer; font-size: 11px; }
+.sound-button svg { width: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+.sound-button[aria-pressed="true"] svg { color: #aa654b; }
+
+#game-root { width: min(1120px, calc(100% - 80px)); margin: 0 auto; }
+.game-intro { display: grid; grid-template-columns: minmax(250px, .95fr) minmax(240px, .7fr); align-items: end; gap: 32px; padding: 53px 0 34px; }
+.session-label { display: flex; grid-column: 1 / -1; align-items: center; gap: 9px; margin: 0 0 -13px; color: #667364; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.live-dot,.scene-dot { width: 7px; aspect-ratio: 1; border-radius: 50%; background: #c36d4c; }
+.session-time { margin-left: 6px; color: #9b9b8c; font-weight: 500; }
+#game-root h1 { margin: 0; font: 500 clamp(45px, 5.5vw, 70px)/.98 var(--serif); letter-spacing: 0; }
+#game-root h1 em,.session-panel h2 em { color: #84904f; font-weight: 500; }
+.intro-note { max-width: 300px; justify-self: end; margin: 0 0 5px; color: #73776b; font-size: 13px; line-height: 1.75; }
+
+.massage-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, .77fr); gap: 55px; align-items: stretch; }
+.scene-column { min-width: 0; }
+.scene-toolbar,.scene-footer { display: flex; min-height: 40px; align-items: center; justify-content: space-between; color: #72776b; font-size: 9px; font-weight: 700; letter-spacing: .11em; }
+.scene-toolbar > span:first-child { display: inline-flex; align-items: center; gap: 8px; }
+.scene-dot { width: 6px; background: #939d5b; }
+.scene-hint,.touch-note { color: #99998b; font-size: 8px; letter-spacing: .1em; }
+.massage-stage { position: relative; display: grid; min-height: 410px; aspect-ratio: 1.37; place-items: center; overflow: hidden; border-radius: 48% 48% 4px 4px / 39% 39% 4px 4px; background: #e5d9bf; isolation: isolate; }
+.massage-stage::before { position: absolute; inset: 0; background: repeating-linear-gradient(108deg, transparent 0 34px, rgb(255 255 255 / 12%) 35px 36px, transparent 37px 64px); content: ""; opacity: .52; }
+.stage-light { position: absolute; top: -18%; left: 3%; width: 54%; aspect-ratio: 1; border-radius: 50%; background: rgb(255 248 226 / 70%); filter: blur(54px); }
+.table-linen { position: absolute; inset: 13% 16% 9%; border: 1px solid rgb(130 110 80 / 12%); border-radius: 46% 46% 3px 3px / 28% 28% 3px 3px; background: repeating-linear-gradient(0deg, #d2c7ad 0 2px, #dbd0b8 3px 5px); box-shadow: 0 14px 32px rgb(79 62 45 / 12%); }
+.body-svg { position: relative; z-index: 1; width: 81%; height: 96%; overflow: visible; touch-action: none; user-select: none; filter: drop-shadow(0 9px 6px rgb(76 53 38 / 12%)); }
+.body-svg [data-massage-zone] { cursor: grab; transition: filter 160ms ease; }
+.body-svg.is-rubbing [data-massage-zone] { cursor: grabbing; }
+.massage-strokes { pointer-events: none; }
+.massage-strokes path { fill: none; stroke: url(#oil-stroke); stroke-linecap: round; stroke-linejoin: round; stroke-width: 24; opacity: .64; }
+.stage-caption { position: absolute; z-index: 2; right: 10%; bottom: 12%; color: #8b8069; font: italic 13px var(--serif); transform: rotate(-4deg); pointer-events: none; }
+.scene-footer { min-height: 44px; font-family: var(--serif); font-size: 12px; font-weight: 500; letter-spacing: 0; }
+
+.session-panel { display: flex; min-width: 0; flex-direction: column; padding: 18px 0 0 28px; border-left: 1px solid rgb(39 57 46 / 13%); }
+.panel-topline,.progress-heading,.oil-heading { display: flex; align-items: center; justify-content: space-between; color: #73796c; font-size: 9px; font-weight: 700; letter-spacing: .11em; }
+.session-number { color: #aa9d83; font-size: 8px; }
+.session-panel h2 { margin: 32px 0 13px; font: 500 35px/1.05 var(--serif); letter-spacing: 0; }
+.panel-copy { max-width: 260px; margin: 0; color: #777a6f; font-size: 12px; line-height: 1.75; }
+.progress-block { margin-top: 38px; }
+.progress-value,.oil-value { color: #3d513f; font: 500 17px var(--serif); letter-spacing: 0; }
+.progress-track { height: 4px; margin-top: 12px; overflow: hidden; background: #d8d8c8; }
+.progress-fill { display: block; width: 0; height: 100%; background: #8a9654; transition: width 300ms ease; }
+.progress-note,.oil-note { margin: 11px 0 0; color: #8c8d80; font: italic 12px var(--serif); }
+.oil-block { position: relative; margin-top: 30px; padding-top: 23px; border-top: 1px solid rgb(39 57 46 / 12%); }
+.oil-visual { position: relative; display: flex; height: 59px; align-items: center; margin-top: 13px; }
+.oil-level { display: block; width: min(122px, 62%); height: 5px; overflow: hidden; background: linear-gradient(to right, #c0a258 0 var(--oil-level, 100%), #dedbc9 var(--oil-level, 100%) 100%); transition: background 250ms ease; }
+.oil-note { margin-top: 0; font-style: normal; font-family: var(--sans); font-size: 10px; }
+.refill-button { display: inline-flex; min-height: 34px; align-items: center; gap: 8px; margin-top: 13px; padding: 0 12px; border: 1px solid #c9c9b8; border-radius: 2px; background: transparent; color: #52624e; cursor: pointer; font-size: 10px; transition: background 160ms ease, border-color 160ms ease; }
+.refill-button:hover { border-color: #8e9a61; background: #ecebdc; }
+.refill-button span { font: 400 17px var(--sans); }
+.panel-bottom { display: flex; min-height: 60px; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid rgb(39 57 46 / 12%); color: #818374; font-size: 8px; line-height: 1.6; letter-spacing: .1em; }
+.panel-bottom strong { color: #4c604d; font-weight: 700; }
+.breath-mark { display: flex; width: 39px; height: 30px; align-items: center; justify-content: space-between; }
+.breath-mark i { width: 8px; aspect-ratio: 1; border: 1px solid #a8a77c; border-radius: 50%; animation: breathe 3.6s ease-in-out infinite; }
+.breath-mark i:nth-child(2) { animation-delay: .3s; }.breath-mark i:nth-child(3) { animation-delay: .6s; }
+.reset-button { display: grid; width: 35px; aspect-ratio: 1; place-items: center; margin-left: auto; border: 1px solid #c9c9b8; border-radius: 50%; background: transparent; color: #65745c; cursor: pointer; transition: transform 180ms ease, background 180ms ease; }
+.reset-button:hover { transform: rotate(-35deg); background: #e7e7d7; }
+.reset-button svg { width: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.game-footer { display: flex; min-height: 78px; align-items: center; justify-content: space-between; margin-top: 38px; border-top: 1px solid rgb(39 57 46 / 13%); color: #858779; font-size: 8px; letter-spacing: .12em; }
+.game-footer span:first-child { color: #52634e; font-weight: 700; }
+#game-root .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+.companion-widget { position: fixed; z-index: 5; right: 24px; bottom: 24px; display: flex; align-items: flex-end; flex-direction: column; gap: 11px; font-family: var(--sans); }
+.chat-launcher { display: inline-flex; min-height: 48px; align-items: center; gap: 9px; padding: 0 16px; border: 0; border-radius: 2px; background: #344d3c; box-shadow: 0 7px 24px rgb(39 57 46 / 18%); color: #f7f4e9; cursor: pointer; font-size: 11px; font-weight: 600; transition: transform 160ms ease, background 160ms ease; }
+.chat-launcher:hover { transform: translateY(-2px); background: #46634c; }
+.chat-launcher svg { width: 18px; fill: none; stroke: #d0d682; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+.companion-panel { display: flex; width: min(360px, calc(100vw - 32px)); height: min(500px, calc(100svh - 100px)); min-height: 360px; flex-direction: column; overflow: hidden; border: 1px solid rgb(39 57 46 / 16%); border-radius: 4px; background: #fbf9f1; box-shadow: 0 16px 52px rgb(28 39 30 / 24%); animation: chat-arrive 180ms ease-out both; }
+.companion-panel[hidden] { display: none; }
+.companion-header { display: flex; min-height: 76px; align-items: center; gap: 11px; padding: 12px 15px; background: #344d3c; color: white; }
+.companion-avatar { display: grid; width: 40px; aspect-ratio: 1; flex: 0 0 auto; place-items: center; border: 1px solid rgb(255 255 255 / 44%); border-radius: 50%; background: #d1b99a; color: #354635; font: 500 21px var(--serif); }
+.companion-heading { min-width: 0; flex: 1; }
+.companion-heading h2 { margin: 0 0 4px; font: 500 20px/1 var(--serif); }
+.companion-heading p { display: flex; align-items: center; gap: 6px; margin: 0; color: rgb(255 255 255 / 76%); font-size: 9px; }
+.companion-heading .companion-location { display: block; margin-top: 4px; color: rgb(255 255 255 / 58%); font-size: 9px; }
+.chat-status-dot { width: 6px; aspect-ratio: 1; flex: 0 0 auto; border-radius: 50%; background: #c7d246; }
+.chat-status-dot.is-error { background: #ef9a78; }
+.chat-close { display: grid; width: 34px; aspect-ratio: 1; flex: 0 0 auto; place-items: center; border: 0; background: transparent; color: white; cursor: pointer; font-size: 24px; }
+.chat-close:hover { color: #d3d88b; }
+.chat-settings { padding: 0 15px; border-bottom: 1px solid #e9e5d8; }
+.chat-settings summary { padding: 10px 0; color: #65705e; cursor: pointer; font-size: 10px; font-weight: 600; }
+.chat-settings-form { display: grid; gap: 7px; padding: 0 0 12px; }
+.chat-settings-form label { color: #65705e; font-size: 10px; font-weight: 600; }
+.chat-settings-form input { width: 100%; min-height: 34px; padding: 6px 9px; border: 1px solid #d9d7ca; border-radius: 2px; background: white; color: var(--ink); font: 11px var(--sans); }
+.chat-save-settings { min-height: 33px; border: 0; border-radius: 2px; background: #344d3c; color: white; cursor: pointer; font-size: 10px; font-weight: 600; }
+.settings-note { margin: 0; color: #818276; font-size: 9px; line-height: 1.5; }
+.chat-messages { display: flex; flex: 1; flex-direction: column; gap: 10px; overflow-y: auto; padding: 15px; overscroll-behavior: contain; }
+.chat-message { max-width: 88%; padding: 9px 11px; border-radius: 3px 12px 12px 12px; font-size: 11px; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+.assistant-message { align-self: flex-start; background: #eeecdf; color: #354435; }
+.user-message { align-self: flex-end; border-radius: 12px 3px 12px 12px; background: #344d3c; color: white; }
+.chat-message.is-pending { color: #68735d; font-style: italic; }
+.chat-form { display: flex; align-items: flex-end; gap: 8px; margin: 0 12px; padding: 7px 7px 7px 10px; border: 1px solid #d9d7ca; border-radius: 3px; background: white; }
+.chat-form textarea { width: 100%; max-height: 80px; resize: none; border: 0; outline: 0; background: transparent; color: var(--ink); font: 11px/1.5 var(--sans); }
+.chat-form textarea::placeholder { color: #85887e; }
+.chat-send { display: grid; width: 32px; min-width: 32px; aspect-ratio: 1; place-items: center; border: 0; border-radius: 2px; background: #89935a; color: white; cursor: pointer; font-size: 18px; font-weight: 700; }
+.chat-send:disabled { cursor: wait; opacity: .55; }
+.chat-footnote { margin: 8px 14px 12px; color: #858779; text-align: center; font-size: 9px; }
+@keyframes chat-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@keyframes breathe { 0%, 100% { opacity: .45; transform: scale(.82); } 50% { opacity: 1; transform: scale(1.2); } }
+
+@media (max-width: 800px) {
+  #game-root { width: min(620px, calc(100% - 48px)); }
+  .game-intro { grid-template-columns: 1fr .75fr; gap: 20px; padding-top: 40px; }
+  .massage-layout { grid-template-columns: minmax(0, 1.25fr) minmax(230px, .75fr); gap: 28px; }
+  .massage-stage { min-height: 350px; }
+  .session-panel { padding-left: 20px; }
+  .session-panel h2 { margin-top: 26px; font-size: 31px; }
+  .progress-block { margin-top: 27px; }
+  .oil-block { margin-top: 23px; }
+  .game-footer { margin-top: 25px; }
+}
+
+@media (max-width: 620px) {
+  .game-header { min-height: 66px; padding: 0 20px; grid-template-columns: 1fr 1fr; }
+  .header-note { display: none; }
+  .sound-button { font-size: 10px; }
+  #game-root { width: calc(100% - 36px); }
+  .game-intro { grid-template-columns: 1fr; gap: 15px; padding: 35px 0 24px; }
+  .session-label { grid-column: auto; margin-bottom: 0; font-size: 8px; }
+  #game-root h1 { font-size: 51px; }
+  .intro-note { justify-self: start; max-width: 330px; font-size: 12px; }
+  .massage-layout { grid-template-columns: 1fr; gap: 17px; }
+  .scene-toolbar { min-height: 32px; }
+  .massage-stage { width: 100%; min-height: 0; aspect-ratio: 1 / 1; border-radius: 46% 46% 4px 4px / 29% 29% 4px 4px; }
+  .table-linen { inset: 9% 11% 7%; }
+  .body-svg { width: 88%; height: 99%; }
+  .stage-caption { right: 8%; bottom: 9%; font-size: 11px; }
+  .session-panel { display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; padding: 18px 0 0; border-top: 1px solid rgb(39 57 46 / 13%); border-left: 0; }
+  .panel-topline,.session-panel h2,.panel-copy { grid-column: 1 / -1; }
+  .session-panel h2 { margin: 17px 0 7px; font-size: 29px; }
+  .panel-copy { max-width: 340px; }
+  .progress-block { margin-top: 22px; }
+  .oil-block { margin-top: 22px; padding-top: 0; border-top: 0; }
+  .oil-visual { height: 47px; margin-top: 11px; }
+  .oil-note { line-height: 1.5; }
+  .refill-button { min-height: 32px; margin-top: 10px; padding: 0 8px; font-size: 9px; }
+  .panel-bottom { grid-column: 1 / -1; margin-top: 21px; }
+  .game-footer { min-height: 62px; gap: 10px; margin-top: 20px; font-size: 7px; }
+  .game-footer span:nth-child(2) { display: none; }
+  .companion-widget { right: 16px; bottom: 16px; }
+  .companion-panel { width: min(360px, calc(100vw - 32px)); height: min(500px, calc(100svh - 90px)); }
+}
+
+@media (max-width: 380px) {
+  #game-root { width: calc(100% - 28px); }
+  #game-root h1 { font-size: 46px; }
+  .massage-stage { min-height: 300px; }
+  .panel-copy { font-size: 11px; }
+  .progress-heading,.oil-heading { font-size: 8px; }
+  .scene-hint { font-size: 7px; }
+}
+
 * {
   box-sizing: border-box;
 }

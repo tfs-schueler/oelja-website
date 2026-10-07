@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f0df">
-    <meta name="description" content="Meet öliges Ölja ÖlivenÖl: bright, peppery extra virgin olive oil from our little corner of the Mediterranean.">
-    <title>öliges Ölja ÖlivenÖl — The best oil ever</title>
+    <meta name="theme-color" content="#f2efe5">
+    <meta name="description" content="Take a quiet moment in Stillroom, a gentle olive oil massage game.">
+    <title>Stillroom — A slower kind of glow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -13,112 +13,132 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="wordmark" href="#home" aria-label="Ölja home">öliges <span>Ölja</span></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#story">Our story</a>
-        <a href="#details">The good oil</a>
-      </nav>
-      <button class="bag-button" type="button" aria-label="Shopping bag, 0 items" aria-live="polite">
-        <span>Bag</span>
-        <span class="bag-count">0</span>
+    <div class="legacy-storefront" aria-hidden="true"></div>
+    <header class="game-header">
+      <a class="game-wordmark" href="#home" aria-label="Stillroom home"><span class="brand-mark" aria-hidden="true">s.</span> stillroom</a>
+      <p class="header-note">A little space to unwind</p>
+      <button class="sound-button" type="button" aria-label="Toggle ambient sound" aria-pressed="false" title="Toggle ambient sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M16 9a5 5 0 0 1 0 6M18.5 6.5a9 9 0 0 1 0 11"/></svg>
+        <span>Sound off</span>
       </button>
     </header>
 
-    <main>
-      <section class="hero" id="home" aria-labelledby="hero-title">
-        <div class="hero-content">
-          <p class="eyebrow"><span class="olive-dot"></span> Extra virgin olive oil · Harvest 2026</p>
-          <h1 id="hero-title">öliges Ölja<br>ÖlivenÖl<span class="title-period">.</span></h1>
-          <p class="hero-line">The best oil ever.<br><span>We said what we said.</span></p>
-          <a class="button button-light" href="#details">Meet your new olive oil <span aria-hidden="true">↘</span></a>
-        </div>
-        <div class="hero-caption" aria-hidden="true">
-          <span>Grown slowly. Poured generously.</span>
-          <span>38° 04' N — 13° 22' E</span>
-        </div>
-        <a class="scroll-note" href="#story"><span>01</span> A little more about the good stuff <span aria-hidden="true">↓</span></a>
+    <main id="game-root">
+      <section class="game-intro" aria-labelledby="game-title">
+        <p class="session-label"><span class="live-dot"></span> YOUR QUIET MOMENT <span class="session-time">NO TIMER</span></p>
+        <h1 id="game-title">A slower kind<br>of <em>glow.</em></h1>
+        <p class="intro-note">Warm a little olive oil between your hands, then let your touch find its own rhythm.</p>
       </section>
 
-      <section class="intro" id="story" aria-labelledby="intro-title">
-        <p class="eyebrow eyebrow-dark">A little sunshine, bottled</p>
-        <h2 id="intro-title">Good things grow<br>when you <em>take your time.</em></h2>
-        <p class="intro-copy">Picked at just the right moment, pressed while the olives are still smiling, and bottled for the table you keep coming back to.</p>
-        <div class="intro-stamp" aria-label="Made with care, shared with joy">MADE WITH CARE <span>✳</span> SHARED WITH JOY</div>
-      </section>
-
-      <section class="product" id="details" aria-labelledby="product-title">
-        <div class="product-photo" role="img" aria-label="Olive oil and fresh olives on a sunlit table"></div>
-        <div class="product-info">
-          <p class="eyebrow eyebrow-dark">The one you came for · 500 ml</p>
-          <h2 id="product-title">A little pepper.<br>A lot of <em>personality.</em></h2>
-          <p>Fresh-cut grass, a hint of green tomato, and that happy little peppery finish. The everyday extra virgin that makes bread disappear.</p>
-          <div class="product-bottom">
-            <span class="price">€24 <small>/ 500 ml</small></span>
-            <button class="button button-dark add-button" type="button">Add to bag <span aria-hidden="true">+</span></button>
+      <section class="massage-layout" aria-label="Olive oil massage game">
+        <div class="scene-column">
+          <div class="scene-toolbar">
+            <span><span class="scene-dot"></span> THE SUNROOM</span>
+            <span class="scene-hint">PRESS &amp; GLIDE TO MASSAGE</span>
           </div>
-          <p class="bag-message" role="status" aria-live="polite"></p>
+          <div class="massage-stage">
+            <div class="stage-light" aria-hidden="true"></div>
+            <div class="table-linen" aria-hidden="true"></div>
+            <svg class="body-svg" viewBox="0 0 600 700" role="img" aria-label="An illustrated person resting face down on a massage table">
+              <defs>
+                <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e4ae88"/><stop offset=".52" stop-color="#d99c76"/><stop offset="1" stop-color="#c78565"/></linearGradient>
+                <linearGradient id="hair" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#463d32"/><stop offset="1" stop-color="#76604c"/></linearGradient>
+                <linearGradient id="oil-stroke" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f0d58b" stop-opacity=".06"/><stop offset=".5" stop-color="#fff0bd" stop-opacity=".72"/><stop offset="1" stop-color="#d4ad56" stop-opacity=".14"/></linearGradient>
+                <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+              </defs>
+              <ellipse cx="300" cy="354" rx="192" ry="282" fill="#705c4e" opacity=".16" filter="url(#soft-shadow)"/>
+              <path d="M194 157c-36 15-78 51-95 91-12 28-4 54 9 73l48-14c4-37 24-68 61-86l-23-64Zm212 0c36 15 78 51 95 91 12 28 4 54-9 73l-48-14c-4-37-24-68-61-86l23-64Z" fill="url(#skin)" data-massage-zone="arms" id="massage-arms"/>
+              <path d="M236 149c-24 3-51 14-67 33 8 44 18 76 27 115 7 30 4 64 11 98 7 35 24 55 40 70l53 15 53-15c16-15 33-35 40-70 7-34 4-68 11-98 9-39 19-71 27-115-16-19-43-30-67-33-19 15-38 21-64 21s-45-6-64-21Z" fill="url(#skin)" data-massage-zone="back" id="massage-back"/>
+              <path d="M247 443c-25 5-44 16-57 33 0 39 4 74 14 111 8 29 21 53 39 72 17 18 37 20 52 7 12-11 12-28 10-48l-3-146c-15-19-33-29-55-29Zm106 0c25 5 44 16 57 33 0 39-4 74-14 111-8 29-21 53-39 72-17 18-37 20-52 7-12-11-12-28-10-48l3-146c15-19 33-29 55-29Z" fill="url(#skin)" data-massage-zone="legs" id="massage-legs"/>
+              <ellipse cx="300" cy="126" rx="82" ry="28" fill="#f3edde"/>
+              <path d="M262 111c0-32 17-55 38-55s38 23 38 55v36c-15 10-25 13-38 13s-23-3-38-13v-36Z" fill="url(#skin)"/>
+              <ellipse cx="296" cy="111" rx="7" ry="10" fill="#cd9170"/>
+              <path d="M279 71c-16-1-27 12-26 29l2 11c-2 4-8 8-13 11-2 2-1 4 2 5l10 2c3 11 13 17 26 15 16-2 25-17 26-38 1-20-9-34-27-35Z" fill="url(#skin)"/>
+              <path d="M253 103c-7-21 1-43 19-50 22-9 45 3 51 25-14 0-27-7-35-18-8 16-20 25-35 30Z" fill="url(#hair)"/>
+              <path d="M256 104c4-3 8-4 12-2" fill="none" stroke="#554638" stroke-linecap="round" stroke-width="2.4"/>
+              <path d="M258 109c3-2 6-2 9 0" fill="none" stroke="#6b5142" stroke-linecap="round" stroke-width="1.7"/>
+              <ellipse cx="264" cy="109" rx="1.5" ry="1.7" fill="#394842"/>
+              <path d="M255 111c-2 4-5 8-10 11 3 2 7 3 11 2m-7 5c5 2 10 2 15 0" fill="none" stroke="#a56e59" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+              <path d="M291 109c3-4 7-3 8 1 1 4-2 8-6 8m-1-5 4-1" fill="none" stroke="#a56e59" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" opacity=".85"/>
+              <path d="M257 133c7 7 18 8 26 2" fill="none" stroke="#805e4d" stroke-linecap="round" stroke-width="1.7" opacity=".38"/>
+              <path d="M211 200c23 12 37 29 43 51m135-51c-23 12-37 29-43 51" fill="none" stroke="#b97d60" stroke-linecap="round" stroke-width="3" opacity=".45"/>
+              <path d="M300 183c-4 51-4 103 0 150m-42-118c11 15 18 33 20 51m64-51c-11 15-18 33-20 51" fill="none" stroke="#b77d61" stroke-linecap="round" stroke-width="2" opacity=".28"/>
+              <path d="M276 671c7 6 18 7 24 0m0 0c7 7 17 6 24 0" fill="none" stroke="#bd8668" stroke-linecap="round" stroke-width="3" opacity=".55"/>
+              <clipPath id="massage-clip" clipPathUnits="userSpaceOnUse"><use href="#massage-arms"/><use href="#massage-back"/><use href="#massage-legs"/></clipPath>
+              <g class="massage-strokes" clip-path="url(#massage-clip)" aria-hidden="true"></g>
+            </svg>
+            <span class="stage-caption">let your shoulders soften</span>
+          </div>
+          <div class="scene-footer"><span>✳ &nbsp; slow is lovely</span><span class="touch-note">MOUSE OR TOUCH</span></div>
         </div>
+
+        <aside class="session-panel" aria-label="Massage session controls">
+          <div class="panel-topline"><span>YOUR SESSION</span><span class="session-number">01 / 01</span></div>
+          <h2>Make yourself<br>at <em>home.</em></h2>
+          <p class="panel-copy">Follow the curve of the back. There is nowhere else you need to be.</p>
+
+          <div class="progress-block">
+            <div class="progress-heading"><span>BACK OF THE BODY</span><span class="progress-value">0%</span></div>
+            <div class="progress-track" role="progressbar" aria-label="Massage progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="progress-fill"></span></div>
+            <p class="progress-note" aria-live="polite">A little pressure, a long glide.</p>
+          </div>
+
+          <div class="oil-block">
+            <div class="oil-heading"><span>OLIVE OIL</span><span class="oil-value">100%</span></div>
+            <div class="oil-visual" aria-hidden="true"><span class="oil-level"></span></div>
+            <p class="oil-note">A few warm drops, whenever you need.</p>
+            <button class="refill-button" type="button"><span aria-hidden="true">+</span> Add a little more oil</button>
+          </div>
+
+          <div class="panel-bottom">
+            <span class="breath-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>BREATHE IN<br><strong>BREATHE OUT</strong></span>
+            <button class="reset-button" type="button" aria-label="Start the session over" title="Start over">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 5.7M4 5v6h6"/></svg>
+            </button>
+          </div>
+        </aside>
       </section>
 
-      <section class="details-strip" aria-label="Olive oil details">
-        <p><span>01</span> Cold extracted</p>
-        <p><span>02</span> Single harvest</p>
-        <p><span>03</span> Very, very delicious</p>
-      </section>
+      <footer class="game-footer"><span>STILLROOM RITUALS</span><span>TAKE ALL THE TIME YOU NEED</span><span>MADE FOR A QUIETER DAY&nbsp; ✳</span></footer>
+      <p class="visually-hidden" id="game-announcement" aria-live="polite"></p>
     </main>
 
-    <footer class="site-footer">
-      <a class="wordmark" href="#home">öliges <span>Ölja</span></a>
-      <p>For the love of a good pour.</p>
-      <a href="#home" class="back-top">Back to the sunshine ↑</a>
-    </footer>
-
-    <aside class="chat-widget" aria-label="Ölja olive oil guide">
-      <section class="chat-panel" id="chat-panel" aria-labelledby="chat-title" hidden>
-        <header class="chat-header">
-          <div class="chat-brand-mark" aria-hidden="true">Ö</div>
-          <div class="chat-heading">
-            <h2 id="chat-title">Ask Ölja</h2>
-            <p><span class="chat-status-dot"></span><span class="chat-status">Local AI · Ollama</span></p>
+    <aside class="companion-widget" aria-label="Chat with Ölja">
+      <section class="companion-panel" id="companion-panel" aria-labelledby="companion-title" hidden>
+        <header class="companion-header">
+          <span class="companion-avatar" aria-hidden="true">Ö</span>
+          <div class="companion-heading">
+            <h2 id="companion-title">Ölja</h2>
+            <p><span class="chat-status-dot"></span><span class="chat-status">Local Ollama · gemma3:latest</span></p>
+            <p class="companion-location">From St. Petersburg, Russia</p>
           </div>
           <button class="chat-close" type="button" aria-label="Close chat">×</button>
         </header>
 
         <details class="chat-settings">
-          <summary>Local AI settings</summary>
+          <summary>Ollama settings</summary>
           <form class="chat-settings-form">
-            <label for="ai-provider">Server type</label>
-            <select id="ai-provider" name="provider">
-              <option value="ollama">Ollama</option>
-              <option value="openai">OpenAI-compatible</option>
-            </select>
-            <label for="ai-url">Server address</label>
-            <input id="ai-url" name="url" type="url" required>
-            <label for="ai-model">Model name</label>
-            <input id="ai-model" name="model" type="text" required>
-            <button class="chat-save-settings" type="submit">Save settings</button>
-            <p class="settings-note">Messages go to this server only. Start it locally and allow this site in its CORS settings.</p>
+            <label for="ollama-model">Local model</label>
+            <input id="ollama-model" name="model" type="text" value="gemma3:latest" required>
+            <button class="chat-save-settings" type="submit">Save model</button>
+            <p class="settings-note">Connects to Ollama on this device at localhost:11434. Messages stay local.</p>
           </form>
         </details>
 
         <div class="chat-messages" role="log" aria-live="polite" aria-relevant="additions text">
-          <div class="chat-message assistant-message">Ciao! I’m your little olive oil guide. Ask me about the flavor, the harvest, or what to drizzle it on.</div>
-        </div>
-        <div class="chat-suggestions" aria-label="Suggested questions">
-          <button type="button" data-prompt="What does it taste like?">What does it taste like?</button>
-          <button type="button" data-prompt="What should I put it on?">What should I put it on?</button>
+          <div class="chat-message assistant-message">Hi, I’m Ölja, from St. Petersburg. That warm olive oil on my shoulders feels lovely. I can feel myself relaxing already. How are you?</div>
         </div>
         <form class="chat-form">
           <label class="visually-hidden" for="chat-input">Message Ölja</label>
-          <textarea id="chat-input" name="message" rows="1" maxlength="1000" placeholder="Ask us anything..." required></textarea>
+          <textarea id="chat-input" name="message" rows="1" maxlength="1000" placeholder="Say something..." required></textarea>
           <button class="chat-send" type="submit" aria-label="Send message">↑</button>
         </form>
-        <p class="chat-footnote">A little local intelligence. No cloud detours.</p>
+        <p class="chat-footnote">A local conversation, powered by Ollama.</p>
       </section>
-      <button class="chat-launcher" type="button" aria-controls="chat-panel" aria-expanded="false">
-        <span class="chat-launcher-icon" aria-hidden="true">✳</span>
-        <span>Ask Ölja</span>
+      <button class="chat-launcher" type="button" aria-controls="companion-panel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/></svg>
+        <span>Talk with Ölja</span>
       </button>
     </aside>
   </body>
