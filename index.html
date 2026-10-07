@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0df">
+    <meta name="description" content="Meet öliges Ölja ÖlivenÖl: bright, peppery extra virgin olive oil from our little corner of the Mediterranean.">
+    <title>öliges Ölja ÖlivenÖl — The best oil ever</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Ölja home">öliges <span>Ölja</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#details">The good oil</a>
+      </nav>
+      <button class="bag-button" type="button" aria-label="Shopping bag, 0 items" aria-live="polite">
+        <span>Bag</span>
+        <span class="bag-count">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="olive-dot"></span> Extra virgin olive oil · Harvest 2026</p>
+          <h1 id="hero-title">öliges Ölja<br>ÖlivenÖl<span class="title-period">.</span></h1>
+          <p class="hero-line">The best oil ever.<br><span>We said what we said.</span></p>
+          <a class="button button-light" href="#details">Meet your new olive oil <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="hero-caption" aria-hidden="true">
+          <span>Grown slowly. Poured generously.</span>
+          <span>38° 04' N — 13° 22' E</span>
+        </div>
+        <a class="scroll-note" href="#story"><span>01</span> A little more about the good stuff <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="intro" id="story" aria-labelledby="intro-title">
+        <p class="eyebrow eyebrow-dark">A little sunshine, bottled</p>
+        <h2 id="intro-title">Good things grow<br>when you <em>take your time.</em></h2>
+        <p class="intro-copy">Picked at just the right moment, pressed while the olives are still smiling, and bottled for the table you keep coming back to.</p>
+        <div class="intro-stamp" aria-label="Made with care, shared with joy">MADE WITH CARE <span>✳</span> SHARED WITH JOY</div>
+      </section>
+
+      <section class="product" id="details" aria-labelledby="product-title">
+        <div class="product-photo" role="img" aria-label="Olive oil and fresh olives on a sunlit table"></div>
+        <div class="product-info">
+          <p class="eyebrow eyebrow-dark">The one you came for · 500 ml</p>
+          <h2 id="product-title">A little pepper.<br>A lot of <em>personality.</em></h2>
+          <p>Fresh-cut grass, a hint of green tomato, and that happy little peppery finish. The everyday extra virgin that makes bread disappear.</p>
+          <div class="product-bottom">
+            <span class="price">€24 <small>/ 500 ml</small></span>
+            <button class="button button-dark add-button" type="button">Add to bag <span aria-hidden="true">+</span></button>
+          </div>
+          <p class="bag-message" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="details-strip" aria-label="Olive oil details">
+        <p><span>01</span> Cold extracted</p>
+        <p><span>02</span> Single harvest</p>
+        <p><span>03</span> Very, very delicious</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#home">öliges <span>Ölja</span></a>
+      <p>For the love of a good pour.</p>
+      <a href="#home" class="back-top">Back to the sunshine ↑</a>
+    </footer>
+
+    <aside class="chat-widget" aria-label="Ölja olive oil guide">
+      <section class="chat-panel" id="chat-panel" aria-labelledby="chat-title" hidden>
+        <header class="chat-header">
+          <div class="chat-brand-mark" aria-hidden="true">Ö</div>
+          <div class="chat-heading">
+            <h2 id="chat-title">Ask Ölja</h2>
+            <p><span class="chat-status-dot"></span><span class="chat-status">Local AI · Ollama</span></p>
+          </div>
+          <button class="chat-close" type="button" aria-label="Close chat">×</button>
+        </header>
+
+        <details class="chat-settings">
+          <summary>Local AI settings</summary>
+          <form class="chat-settings-form">
+            <label for="ai-provider">Server type</label>
+            <select id="ai-provider" name="provider">
+              <option value="ollama">Ollama</option>
+              <option value="openai">OpenAI-compatible</option>
+            </select>
+            <label for="ai-url">Server address</label>
+            <input id="ai-url" name="url" type="url" required>
+            <label for="ai-model">Model name</label>
+            <input id="ai-model" name="model" type="text" required>
+            <button class="chat-save-settings" type="submit">Save settings</button>
+            <p class="settings-note">Messages go to this server only. Start it locally and allow this site in its CORS settings.</p>
+          </form>
+        </details>
+
+        <div class="chat-messages" role="log" aria-live="polite" aria-relevant="additions text">
+          <div class="chat-message assistant-message">Ciao! I’m your little olive oil guide. Ask me about the flavor, the harvest, or what to drizzle it on.</div>
+        </div>
+        <div class="chat-suggestions" aria-label="Suggested questions">
+          <button type="button" data-prompt="What does it taste like?">What does it taste like?</button>
+          <button type="button" data-prompt="What should I put it on?">What should I put it on?</button>
+        </div>
+        <form class="chat-form">
+          <label class="visually-hidden" for="chat-input">Message Ölja</label>
+          <textarea id="chat-input" name="message" rows="1" maxlength="1000" placeholder="Ask us anything..." required></textarea>
+          <button class="chat-send" type="submit" aria-label="Send message">↑</button>
+        </form>
+        <p class="chat-footnote">A little local intelligence. No cloud detours.</p>
+      </section>
+      <button class="chat-launcher" type="button" aria-controls="chat-panel" aria-expanded="false">
+        <span class="chat-launcher-icon" aria-hidden="true">✳</span>
+        <span>Ask Ölja</span>
+      </button>
+    </aside>
+  </body>
+</html>
